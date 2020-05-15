@@ -141,3 +141,7 @@ export const DECK = new Map([
 	[Month.Nov, NovSuit],
 	[Month.Dec, DecSuit],
 ])
+
+export function getWholeDeck() {
+	const
+}
