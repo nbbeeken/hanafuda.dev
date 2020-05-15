@@ -35,7 +35,7 @@ export class BoardView extends LitElement {
 			</div>
 		`
 		const gameHtml = html`
-			<h1>playing with ${this.numPlayers}</h1>
+			<h1>Playing with ${this.numPlayers} players!</h1>
 			<hana-pile .cards=${this.fullDeck}></hana-pile>
 			<!-- <hana-pile .cards=${[]}></hana-pile>
 			<hana-pile .cards=${[]}></hana-pile> -->
