@@ -143,5 +143,5 @@ export const DECK = new Map([
 ])
 
 export function getWholeDeck() {
-	const
+	return Array.from(DECK.values())
 }

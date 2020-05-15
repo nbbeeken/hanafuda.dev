@@ -1,4 +1,5 @@
 import { customElement, html, LitElement, property } from 'lit-element'
+import { getWholeDeck } from './hanafuda'
 
 @customElement('hana-board')
 export class BoardView extends LitElement {
@@ -14,6 +15,7 @@ export class BoardView extends LitElement {
 
 	numPlayersInputHandler(e) {
 		this.numPlayers = +e.target.value
+		this.fullDeck = getWholeDeck()
 	}
 
 	render() {
