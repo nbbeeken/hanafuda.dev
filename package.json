@@ -7,7 +7,8 @@
 	"scripts": {
 		"lint": "eslint src/*.ts src/**/*.ts",
 		"fix": "prettier src --write && eslint src/*.ts src/**/*.ts --fix",
-		"start": "parcel serve src/main.html"
+		"start": "parcel serve src/main.html",
+		"build": "parcel build src/main.html"
 	},
 	"husky": {
 		"hooks": {
