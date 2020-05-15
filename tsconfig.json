@@ -5,7 +5,10 @@
     "outDir": "dist/js",
     "moduleResolution": "node",
     "lib": [
-      "DOM"
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ES2015.Iterable"
     ],
     "importHelpers": true,
     "forceConsistentCasingInFileNames": true,
