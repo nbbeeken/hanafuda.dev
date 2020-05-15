@@ -1,5 +1,5 @@
 import { css, customElement, html, LitElement, property } from 'lit-element'
-import { DECK, HanaCard, Month } from './hanafuda'
+import { HanaCard } from './hanafuda'
 
 @customElement('hana-card')
 export class CardView extends LitElement {
@@ -11,9 +11,9 @@ export class CardView extends LitElement {
 	@property({ type: HanaCard })
 	public card: HanaCard
 
-	constructor() {
+	constructor(card: HanaCard) {
 		super()
-		this.card = DECK.get(Month.Jan)[0]
+		this.card = card
 	}
 
 	static styles = css`

@@ -146,6 +146,4 @@ export const DECK = new Map([
 	[Month.Dec, DecSuit],
 ])
 
-export function getWholeDeck() {
-	return Array.from(DECK.values())
-}
+export const wholeDeck = () => [...DECK.values()].flatMap((v) => v)

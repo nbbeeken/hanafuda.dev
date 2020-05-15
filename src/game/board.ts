@@ -1,5 +1,5 @@
 import { customElement, html, LitElement, property } from 'lit-element'
-import { getWholeDeck } from './hanafuda'
+import { wholeDeck } from './hanafuda'
 
 @customElement('hana-board')
 export class BoardView extends LitElement {
@@ -10,12 +10,12 @@ export class BoardView extends LitElement {
 	@property({ type: Array }) fieldCards = []
 
 	playButtonHandler() {
+		this.fullDeck = wholeDeck()
 		this.gameStarted = true
 	}
 
 	numPlayersInputHandler(e) {
 		this.numPlayers = +e.target.value
-		this.fullDeck = getWholeDeck()
 	}
 
 	render() {

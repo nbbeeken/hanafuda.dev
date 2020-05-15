@@ -6,6 +6,11 @@ export class Pile extends LitElement {
 	public cards = []
 
 	render() {
-		return html` <p>here</p> `
+		return html`
+			<ul>
+				<p>${this.cards.length}</p>
+				${this.cards.map((card) => html`<li><hana-card .card=${card}></hana-card></li>`)}
+			</ul>
+		`
 	}
 }
