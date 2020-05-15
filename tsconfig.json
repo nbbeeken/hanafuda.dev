@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "dist/js",
+    "moduleResolution": "node",
+    "lib": [
+      "DOM"
+    ],
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+  }
+}

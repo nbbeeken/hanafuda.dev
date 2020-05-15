@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+@import './styles/variables.scss';
+
+@import '../node_modules/bulma/bulma.sass';
+
+* {
+	margin: 16px;
+}
