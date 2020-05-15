@@ -1,4 +1,6 @@
 import { customElement, html, LitElement, property } from 'lit-element'
+import { NumberCardsPerPlayer } from './hanafuda'
+import { AddCardAction, AddPlayerAction } from './logic/player'
 import { store } from './logic/reducers'
 
 @customElement('hana-board')
@@ -19,6 +21,32 @@ export class BoardView extends LitElement {
 	playButtonHandler() {
 		this.gameStarted = true
 		store.dispatch({ type: 'SHUFFLE' })
+
+		for (let i = 0; i < this.numPlayers; i++) {
+			const action: AddPlayerAction = {
+				type: 'ADD_PLAYER',
+				name: `player_${i}`,
+			}
+			store.dispatch(action)
+		}
+
+		const numCards = NumberCardsPerPlayer.get(this.numPlayers)
+		const { hand: numHandCards, field: numFieldCards } = numCards
+
+		for (let i = 0; i < numHandCards * this.numPlayers; i++) {
+			store.dispatch({ type: 'DRAW_CARD' })
+
+			const action: AddCardAction = {
+				type: 'ADD_CARD',
+				player: store.getState().playerStore[i % this.numPlayers].name,
+				card: store.getState().deckStore.currentCard,
+			}
+			store.dispatch(action)
+		}
+		for (let i = 0; i < numFieldCards; i++) {
+			store.dispatch({ type: 'DRAW_CARD' })
+			this.fieldCards.push(store.getState().deckStore.currentCard)
+		}
 	}
 
 	drawCardHandler() {
@@ -48,7 +76,7 @@ export class BoardView extends LitElement {
 		const gameHtml = html`
 			<h1>Playing with ${this.numPlayers} players!</h1>
 			<button class="button" @click=${this.drawCardHandler}>Draw Card!</button>
-			<hana-pile .cards=${this.deck}></hana-pile>
+			<hana-pile .cards=${this.fieldCards}></hana-pile>
 		`
 
 		return html`${this.gameStarted ? gameHtml : welcomeHtml}`

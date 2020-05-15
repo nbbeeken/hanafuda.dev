@@ -147,3 +147,12 @@ export const DECK = new Map([
 ])
 
 export const wholeDeck = () => [...DECK.values()].flatMap((v) => v)
+
+export const NumberCardsPerPlayer = new Map([
+	[2, { hand: 8, field: 8 }],
+	[3, { hand: 7, field: 6 }],
+	[4, { hand: 5, field: 8 }],
+	[5, { hand: 4, field: 8 }],
+	[6, { hand: 3, field: 12 }],
+	[7, { hand: 3, field: 6 }],
+])

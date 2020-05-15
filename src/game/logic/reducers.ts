@@ -1,7 +1,8 @@
 import { combineReducers, createStore } from 'redux'
 import { deckStore } from './deck'
+import { playerStore } from './player'
 
-const reducer = combineReducers({ deckStore })
+const reducer = combineReducers({ deckStore, playerStore })
 export const store = createStore(reducer)
 
-store.subscribe(() => console.log(store.getState()))
+store.subscribe(() => console.dir(store.getState()))
