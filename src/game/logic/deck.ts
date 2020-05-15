@@ -14,14 +14,22 @@ function shuffle(inputArray: object[]) {
 	return shuffled
 }
 
-export function deck(state = wholeDeck(), action: { type: DeckActionTypes }) {
+const initState = {
+	currentCard: null,
+	deck: wholeDeck(),
+}
+
+export function deckStore(state = initState, action: { type: DeckActionTypes }) {
 	switch (action.type) {
 		case 'DRAW_CARD':
-			return [...state.slice(1)]
+			return { currentCard: state.deck[0], deck: [...state.deck.slice(1)] }
 		case 'SHUFFLE':
-			return shuffle(state)
+			return {
+				currentCard: state.currentCard,
+				deck: shuffle(state.deck),
+			}
 		case 'RESET':
-			return wholeDeck()
+			return initState
 		default:
 			return state
 	}

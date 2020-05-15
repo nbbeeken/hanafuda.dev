@@ -1,17 +1,28 @@
 import { customElement, html, LitElement, property } from 'lit-element'
-import { wholeDeck } from './hanafuda'
+import { store } from './logic/reducers'
 
 @customElement('hana-board')
 export class BoardView extends LitElement {
 	@property() gameStarted = false
 	@property() numPlayers = 2
-	@property({ type: Array }) fullDeck = []
+	@property({ type: Array }) deck = []
 	@property({ type: Array }) discardPile = []
 	@property({ type: Array }) fieldCards = []
 
+	constructor() {
+		super()
+		store.subscribe(() => {
+			this.deck = store.getState().deckStore.deck
+		})
+	}
+
 	playButtonHandler() {
-		this.fullDeck = wholeDeck()
 		this.gameStarted = true
+		store.dispatch({ type: 'SHUFFLE' })
+	}
+
+	drawCardHandler() {
+		store.dispatch({ type: 'DRAW_CARD' })
 	}
 
 	numPlayersInputHandler(e) {
@@ -36,9 +47,8 @@ export class BoardView extends LitElement {
 		`
 		const gameHtml = html`
 			<h1>Playing with ${this.numPlayers} players!</h1>
-			<hana-pile .cards=${this.fullDeck}></hana-pile>
-			<!-- <hana-pile .cards=${[]}></hana-pile>
-			<hana-pile .cards=${[]}></hana-pile> -->
+			<button class="button" @click=${this.drawCardHandler}>Draw Card!</button>
+			<hana-pile .cards=${this.deck}></hana-pile>
 		`
 
 		return html`${this.gameStarted ? gameHtml : welcomeHtml}`
