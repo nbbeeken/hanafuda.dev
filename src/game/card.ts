@@ -18,11 +18,21 @@ export class CardView extends LitElement {
 
 	static styles = css`
 		div {
-			outline: red solid 1px;
+			height: 200px;
+			width: 150px;
+			border: maroon solid 2px;
+			margin: 16px;
+			padding: 16px;
 		}
 	`
 
 	render() {
-		return html`<div class="tile">Hanafuda ${this.name} Card!</div>`
+		return html`
+			<div>
+				<h4 class="title">name: ${this.card.name}</h4>
+				<h5 class="title">suit: ${this.card.month}</h5>
+				<h6 class="title">points: ${this.card.value}</h6>
+			</div>
+		`
 	}
 }

@@ -1,16 +1,16 @@
 export enum Month {
-	Jan,
-	Feb,
-	Mar,
-	Apr,
-	May,
-	Jun,
-	Jul,
-	Aug,
-	Sep,
-	Oct,
-	Nov,
-	Dec,
+	Jan = 'Jan',
+	Feb = 'Feb',
+	Mar = 'Mar',
+	Apr = 'Apr',
+	May = 'May',
+	Jun = 'Jun',
+	Jul = 'Jul',
+	Aug = 'Aug',
+	Sep = 'Sep',
+	Oct = 'Oct',
+	Nov = 'Nov',
+	Dec = 'Dec',
 }
 
 export const enum Points {
@@ -38,6 +38,10 @@ export class HanaCard {
 	) {
 		const defaultAttributes = { isScroll: false, isAnimal: false, isBasic: false, isWrittenOn: false }
 		this.attributes = { ...defaultAttributes, ...attributes }
+	}
+
+	get description() {
+		return `HanaCard(month: ${this.month}, name: ${this.name}, points: ${this.value})`
 	}
 }
 
@@ -121,10 +125,10 @@ const NovSuit: Suit = [
 ]
 
 const DecSuit: Suit = [
-	new HanaCard(Month.Nov, 'phoenix', Points.Twenty, { isAnimal: true }),
-	new HanaCard(Month.Nov, 'basic', Points.Ten, { isBasic: true }),
-	new HanaCard(Month.Nov, 'basic', Points.One, { isBasic: true }),
-	new HanaCard(Month.Nov, 'basic', Points.One, { isBasic: true }),
+	new HanaCard(Month.Dec, 'phoenix', Points.Twenty, { isAnimal: true }),
+	new HanaCard(Month.Dec, 'basic', Points.Ten, { isBasic: true }),
+	new HanaCard(Month.Dec, 'basic', Points.One, { isBasic: true }),
+	new HanaCard(Month.Dec, 'basic', Points.One, { isBasic: true }),
 ]
 
 export const DECK = new Map([
