@@ -59,11 +59,14 @@ export class BoardView extends LitElement {
 
 	render() {
 		const welcomeHtml = html`
+			<h1>${'🎴'.codePointAt(0).toString(16)}</h1>
 			<div>
 				Number of Players:
 				<input
 					id="numPlayers-input"
 					type="number"
+					min="1"
+					max="7"
 					value="${this.numPlayers}"
 					@change=${this.numPlayersInputHandler}
 				/>

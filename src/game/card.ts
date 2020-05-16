@@ -33,6 +33,11 @@ export class CardView extends LitElement {
 			box-shadow: 6px 6px 5px -4px rgba(0, 0, 0, 0.75);
 			color: white;
 		}
+		h1 {
+			text-align: center;
+			margin: 1px;
+			font-size: 23px;
+		}
 		p {
 			margin-top: 0.3em;
 			margin-bottom: 0.3em;
@@ -52,6 +57,7 @@ export class CardView extends LitElement {
 		return html`
 			<div class=${classMap(this.classes)} alt="${this.card.id}">
 				<p>${this.card.name.split('_').join(' ')}</p>
+				${this.card.emojis.map((e) => html`<img height="40px" width="40px" src="${e}" />`)}
 				<p class="month">${this.card.month}</p>
 				<p class="points">${this.card.value}</p>
 			</div>
