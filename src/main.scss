@@ -1,12 +1,56 @@
 @charset "utf-8";
 
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@font-face {
+	font-family: 'chi_jyun';
+	src: url('./styles/chi_jyun.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
 
-@import './styles/variables.scss';
+:root {
+	--purple: #8a4d76;
+	--pink: #fa7c91;
+	--brown: #757763;
+	--beige-light: #d0d1cd;
+	--beige-lighter: #eff0eb;
+	--grey-dark: var(--brown);
+	--grey-light: var(--beige-light);
 
-@import '../node_modules/bulma/bulma.sass';
+	--family-sans-serif: 'chi_jyun', sans-serif;
+
+	--background-color: var(--beige-light);
+	--primary: var(--purple);
+	--link: var(--pink);
+}
 
 * {
+	font-family: var(--family-sans-serif);
+}
+
+a {
+	color: var(--link);
+}
+
+body {
+	background-color: var(--background-color);
 	margin: 16px;
+}
+
+main {
+	padding-bottom: 4rem;
+}
+
+input {
+	border-color: transparent;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+footer {
+	// position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 4rem;
 }
