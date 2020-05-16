@@ -8,7 +8,8 @@
 		"lint": "eslint src/*.ts src/**/*.ts",
 		"fix": "prettier src --write && eslint src/*.ts src/**/*.ts --fix",
 		"start": "parcel serve --no-autoinstall src/main.html -o index.html",
-		"build": "parcel build --no-autoinstall src/main.html -o index.html"
+		"build": "parcel build --no-autoinstall src/main.html -o index.html",
+		"deploy": "sh ./.github/workflows/deploy.sh"
 	},
 	"husky": {
 		"hooks": {
